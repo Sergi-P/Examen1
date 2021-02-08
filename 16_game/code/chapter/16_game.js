@@ -297,7 +297,7 @@ Player.prototype.update = function(time, state, keys) {
   }
   return new Player(pos, new Vec(xSpeed, ySpeed));
 };
-
+/*
 function trackKeys(keys) {
   let down = Object.create(null);
   function track(event) {
@@ -313,7 +313,7 @@ function trackKeys(keys) {
 
 var arrowKeys =
   trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
-
+*/
 function runAnimation(frameFunc) {
   let lastTime = null;
   function frame(time) {
@@ -327,12 +327,39 @@ function runAnimation(frameFunc) {
   requestAnimationFrame(frame);
 }
 
+
+
 function runLevel(level, Display) {
+  
   let display = new Display(document.body, level);
   let state = State.start(level);
   let ending = 1;
+  let cont = "si";
+
   return new Promise(resolve => {
-    runAnimation(time => {
+    function escHandler(event){
+      if(event.key != "Escape")return;
+      event.preventDefault();
+      if(cont == "no"){
+        cont = "si";
+        runAnimation(frame);
+      }
+      else if(cont=="si"){
+        cont="no";
+        return false;
+      }
+      else{
+        cont = "si"
+      }
+    }
+    window,addEventListener("keydown", escHandler);
+    let arrowKeys = trackKeys([ "ArrowLeft", "ArrowRight", "ArrowUp" ] );
+
+    function frame(time){
+      if(cont == "pausando"){
+        cont = "no";
+        return false;
+      }
       state = state.update(time, arrowKeys);
       display.syncState(state);
       if (state.status == "playing") {
@@ -342,18 +369,64 @@ function runLevel(level, Display) {
         return true;
       } else {
         display.clear();
+        window.removeEventListener("keydown", escHandler);
+        arrowKeys.unregister();
         resolve(state.status);
         return false;
       }
-    });
-  });
-}
+    }
+    runAnimation( frame );
+   } );
+  };
+
+  function trackKeys(keys) {
+    let down = Object.create(null);
+    function track(event) {
+      if (keys.includes(event.key)) {
+        down[event.key] = event.type == "keydown";
+        event.preventDefault();
+      }
+    }
+    window.addEventListener("keydown", track);
+    window.addEventListener("keyup", track);
+    down.unregister = ()=>{
+      window.removeEventListener("keydown", track);
+      window.removeEventListener("keyup", track);
+    };
+    return down;
+  }
+  
 
 async function runGame(plans, Display) {
-  for (let level = 0; level < plans.length;) {
+
+  this.vidas=3;
+  this.nivel=1;
+  this.vidasView = document.getElementById( "vidasli" );
+  this.nivelView = document.getElementById( "nivelli" );
+
+  for (let level = 0;vidas > 0 && level < plans.length;) {
+    console.log(`level: ${level+1}`,`vidas: ${vidas}`);
     let status = await runLevel(new Level(plans[level]),
-                                Display);
-    if (status == "won") level++;
+     Display);
+    if (status == "won"){
+      nivel++;
+      level++; 
+      this.nivelView.innerHTML = "Nivel: " + `${level+1}`;
+    } 
+    else{
+      vidas--; 
+      this.vidasView.innerHTML = "Vidas: " + this.vidas;
+    }
+    
   }
+  if(vidas>0){
   console.log("You've won!");
+    window.alert("VICTORIA");
+    document.location.reload();
+  }
+  else{
+    console.log("You've lost!");
+    window.alert("DERROTA");
+    document.location.reload();
+  }
 }
