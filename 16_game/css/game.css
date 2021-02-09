@@ -1,13 +1,7 @@
 .background {
-
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDVes3IuPSG-kUrhojfqc-WWzU6MIgr1Ipg&usqp=CAU");
-  background-repeat: no-repeat;
-  table-layout: fixed;
   border-spacing: 0;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-color: rgb(255, 215, 105);
+
+
 }
 
 .background td {
@@ -19,18 +13,26 @@
 }
 
 .wall {
- background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTa1j25i0W9Sf-Ix6hxTGasx2rjtI46BTMfg&usqp=CAU");
-  
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTa1j25i0W9Sf-Ix6hxTGasx2rjtI46BTMfg&usqp=CAU");
 
-  }
+
+}
+
+body {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDVes3IuPSG-kUrhojfqc-WWzU6MIgr1Ipg&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
 
 .actor {
   position: absolute;
 }
 
 .coin {
- background: rgb(251, 255, 0);
- 
+  background: rgb(251, 255, 0);
+
 }
 
 .player {
@@ -51,8 +53,44 @@
 .won .player {
   box-shadow: -4px -7px 8px rgb(255, 238, 0), 4px -7px 8px rgb(255, 238, 0);
 }
-.head, h2{
-  align-items: center;
-  text-align:center;
-  
+
+h2 {
+
+  text-align: center;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  border: 3px solid black;
+  height: 40px;
+  width: 300px;
+  position: absolute;
+  top: 2%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: aliceblue;
+}
+
+ul {
+  border-radius: 5px;
+  border: 3px solid black;
+  background-color: rgb(162, 212, 255);
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  margin-bottom: 20%;
+  font-weight: bold;
+
+
+}
+
+ul:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+#vidasli,
+#nivelli {
+
+  margin-left: 20%;
+
+
 }
