@@ -406,12 +406,12 @@ function trackKeys(keys) {
 
 async function runGame(plans, Display) {
 
-  this.vidas = 100;
+  this.vidas = 5;
   this.nivel = 1;
   this.vidasView = document.getElementById("vidasli");
   this.nivelView = document.getElementById("nivelli");
 
-  for (let level = 1; vidas > 0 && level < plans.length;) {
+  for (let level = 0; vidas > 0 && level < plans.length;) {
     console.log(`level: ${level+1}`, `vidas: ${vidas}`);
     let status = await runLevel(new Level(plans[level]),
       Display);

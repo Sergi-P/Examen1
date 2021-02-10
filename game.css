@@ -20,7 +20,6 @@
 
 body {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDVes3IuPSG-kUrhojfqc-WWzU6MIgr1Ipg&usqp=CAU");
-
   background-color: rgb(59, 159, 172);
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,6 +29,7 @@ body {
 
 .actor {
   position: absolute;
+  
 }
 
 .coin {
@@ -38,8 +38,8 @@ body {
 }
 
 .player {
-  background: rgb(66, 28, 0);
-  background: linear-gradient(to top, blue 50%, orange 50%);
+ background: linear-gradient(to bottom, blue 25%, rgb(255, 166, 0) 100%);
+ 
 }
 
 
