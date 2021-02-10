@@ -1,0 +1,107 @@
+.background {
+  border-spacing: 0;
+
+
+}
+
+.background td {
+  padding: 0;
+}
+
+.lava {
+  background: rgb(255, 102, 0);
+}
+
+.wall {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTa1j25i0W9Sf-Ix6hxTGasx2rjtI46BTMfg&usqp=CAU");
+
+
+}
+
+body {
+ /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxDVes3IuPSG-kUrhojfqc-WWzU6MIgr1Ipg&usqp=CAU");
+  */
+  background-color: rgb(59, 159, 172);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.actor {
+  position: absolute;
+}
+
+.coin {
+  background: rgb(251, 255, 0);
+
+}
+
+.player {
+  background: rgb(66, 28, 0);
+  background: linear-gradient( to top, blue 50%, orange 50%);
+}
+
+
+.game {
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+}
+
+.lost .player {
+  background: rgb(160, 52, 52);
+}
+
+.won .player {
+  box-shadow: -4px -7px 8px rgb(255, 238, 0), 4px -7px 8px rgb(255, 238, 0);
+}
+
+h2 {
+  position:absolute;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  border: 3px solid black;
+  height: 40px;
+  width: 300px;
+  position: absolute;
+  top:  10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgb(162, 212, 255);
+  padding: 5px;
+}
+
+ul {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  right: 0;
+  z-index: 99999;
+  border-radius: 5px;
+  border: 3px solid black;
+  background-color: rgb(162, 212, 255);
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  margin-bottom: 20%;
+  font-weight: bold;
+
+
+}
+h2:hover{
+  background-color: rgb(255, 255, 255);
+}
+ul:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+#vidasli,
+#nivelli {
+
+  margin-left: 20%;
+
+
+}
