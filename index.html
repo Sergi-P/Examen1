@@ -1,5 +1,7 @@
 <!doctype html>
 
+
+
 <head>
   <h2>THE CRASHING PLANE</h2>
   <script src="16_game.js"></script>
@@ -7,13 +9,14 @@
 </head>
 
 <link rel="stylesheet" href="game.css">
+<script>
+setTimeout(function(){
+  document.getElementById('intro').style.transform="scale(0)";
+}, 5000);
+</script>
 
 <body>
-<div id="fondo1">
-   <div id="fondo2">
-     
-      </div>
-   </div>
+<div class ="nubes"> <img id="intro" src="https://cdns3.eltiempo.es/eltiempo/blog/noticias/2019/03/11135102/cumulus_tipos-de-nubes.jpg"></div>
 
   <ul>
     <li id="vidasli">Vidas: 5</li>
