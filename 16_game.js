@@ -411,7 +411,7 @@ async function runGame(plans, Display) {
   this.vidasView = document.getElementById("vidasli");
   this.nivelView = document.getElementById("nivelli");
 
-  for (let level = 0; vidas > 0 && level < plans.length;) {
+  for (let level = 3; vidas > 0 && level < plans.length;) {
     console.log(`level: ${level+1}`, `vidas: ${vidas}`);
     let status = await runLevel(new Level(plans[level]),
       Display);
